@@ -27,8 +27,33 @@ public class EncryptionUtils {
     //DES加密的key 长度为八位
     private static String desKey = "bs7dff53";
 
+    private static final char HEX_DIGITS[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
+    private static String toHexString(byte[] b) {
+        StringBuilder sb = new StringBuilder(b.length * 2);
+        for (int i = 0; i < b.length; i++) {
+            sb.append(HEX_DIGITS[(b[i] & 0xf0) >>> 4]);
+            sb.append(HEX_DIGITS[b[i] & 0x0f]);
+        }
+        return sb.toString();
+    }
 
+    /**
+     * MD5加密算法
+     * @param SourceString
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    public static String Bit32(String SourceString) throws NoSuchAlgorithmException {
+        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+        digest.update(SourceString.getBytes());
+        byte messageDigest[] = digest.digest();
+        return toHexString(messageDigest);
+    }
+
+    public static String Bit16(String SourceString) throws NoSuchAlgorithmException {
+        return Bit32(SourceString).substring(8, 24);
+    }
     /**
      * SHA1算法进行加密
      * @param decript
