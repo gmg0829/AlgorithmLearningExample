@@ -1,7 +1,8 @@
+package com.gmg.general;
 import java.util.List;
 
 
-class ThreadDemo  implements Runnable{
+public class ThreadDemo  implements Runnable{
 		MyData data;
 		public ThreadDemo(MyData data){
 			this.data = data;

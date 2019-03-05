@@ -1,3 +1,6 @@
+package com.gmg.general;
+import com.gmg.general.utils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
