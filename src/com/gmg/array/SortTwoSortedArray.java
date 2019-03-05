@@ -1,5 +1,8 @@
 package com.gmg.array;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author gmg
  * @Title:
@@ -32,8 +35,15 @@ public class SortTwoSortedArray {
     public static void main(String[] args) {
         int[] c = merge(new int[] { 1, 2, 3, 4 }, new int[] { 0, 2, 4, 5,
                 6, 7, 8 });
-        for (int i = 0; i < c.length; i++)
-            System.out.println(c[i]);
+        Set set=new HashSet();
+        for (int i = 0; i < c.length; i++){
+            set.add(c[i]);
+           // System.out.println(c[i]);
+        }
+     set.forEach(x->{
+         System.out.println(x.hashCode());
+     });
+
     }
 
 }
